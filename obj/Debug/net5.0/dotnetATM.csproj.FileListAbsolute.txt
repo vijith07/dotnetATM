@@ -1,0 +1,16 @@
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\bin\Debug\net5.0\dotnetATM.exe
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\bin\Debug\net5.0\dotnetATM.deps.json
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\bin\Debug\net5.0\dotnetATM.runtimeconfig.json
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\bin\Debug\net5.0\dotnetATM.runtimeconfig.dev.json
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\bin\Debug\net5.0\dotnetATM.dll
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\bin\Debug\net5.0\ref\dotnetATM.dll
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\bin\Debug\net5.0\dotnetATM.pdb
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\obj\Debug\net5.0\dotnetATM.csproj.AssemblyReference.cache
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\obj\Debug\net5.0\dotnetATM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\obj\Debug\net5.0\dotnetATM.AssemblyInfoInputs.cache
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\obj\Debug\net5.0\dotnetATM.AssemblyInfo.cs
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\obj\Debug\net5.0\dotnetATM.csproj.CoreCompileInputs.cache
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\obj\Debug\net5.0\dotnetATM.dll
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\obj\Debug\net5.0\ref\dotnetATM.dll
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\obj\Debug\net5.0\dotnetATM.pdb
+C:\Users\vijit\OneDrive\Desktop\dotnet dev\dotnetATM\obj\Debug\net5.0\dotnetATM.genruntimeconfig.cache
