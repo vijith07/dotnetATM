@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -23,28 +23,22 @@ namespace ATM
             this.name = name;
             this.balance = 100;
             this.transactions = new ArrayList();
-            Console
-                .WriteLine("Account Created with Acc No:" +
-                accountNo +
-                " Name: " +
-                name +
-                " Balance: " +
-                this.balance);
+            AccountMessages.CreateMessage(accountNo,name,this.balance);
         }
 
         public int GetPin()
         {
-            return this.pin;
+            return pin;
         }
 
         public int GetAccountNo()
         {
-            return this.accountNo;
+            return accountNo;
         }
 
-        public double GetBalanne()
+        public double GetBalance()
         {
-            return this.balance;
+            return balance;
         }
     }
 }

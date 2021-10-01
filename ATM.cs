@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -15,117 +15,78 @@ namespace ATM
 
         public void CreateAccount()
         {
-            Console.WriteLine("Enter your Name");
-            string name = Console.ReadLine();
-            Console.WriteLine("Enter the new account number");
-            int accountNo = int.Parse(Console.ReadLine());
-            while (AccountsList.ContainsKey(accountNo))
+            ATMMessages.CreateAccountMessage();
+            string name=ATMPrompts.GetName();
+            int accountNo = ATMValidators.GenreateAccountNumber(AccountsList);
+            if (accountNo ==-1)
             {
-                Console.WriteLine("Already exists enter another number");
-                Console.WriteLine("Enter new number or 007 to exit");
-                accountNo = int.Parse(Console.ReadLine());
-                if (accountNo == 007)
-                {
-                    Console.WriteLine("Couldn't Create Account");
-                    return;
-                }
+                ATMMessages.AccountGenerationFailed();
+                return;
             }
-            Console.WriteLine("Enter your new pin");
-            int pin = int.Parse(Console.ReadLine());
-
+            int pin = ATMPrompts.GetPinNo();
             Account acc = new Account(accountNo, pin, name);
             AccountsList.Add(acc.accountNo, acc);
         }
 
         public void Deposit()
         {
-            Console.WriteLine("Enter the account number");
-            int accountNo = int.Parse(Console.ReadLine());
+            int accountNo = ATMPrompts.GetAccountNo();
 
             if (AccountsList.ContainsKey(accountNo))
             {
-                Console.WriteLine("Enter your pin");
-                int pinNo = int.Parse(Console.ReadLine());
-                if (pinNo != AccountsList[accountNo].pin)
+                int pinNo = ATMPrompts.GetPinNo();
+                if (!ATMValidators.ValidateUser(AccountsList, accountNo, pinNo))
                 {
-                    Console.WriteLine("Invalid Pin");
                     return;
                 }
-                Console.WriteLine("Enter your amount you wish to deposit");
-                double amount = Math.Abs(double.Parse(Console.ReadLine()));
-                AccountsList[accountNo].balance += amount;
-                double bal = AccountsList[accountNo].balance;
-                string transaction = "🟢 +";
-                transaction += amount.ToString();
-                transaction += "  Balance:";
-                transaction += bal.ToString();
-                AccountsList[accountNo].transactions.Add(transaction);
+
+                ATMTransactions.Deposit(AccountsList, accountNo);
             }
             else
             {
-                Console.WriteLine("Invalid account number");
+                ATMMessages.InvalidAccountNo();
             }
         }
 
         public void Withdraw()
         {
-            Console.WriteLine("Enter the account number");
-            int accountNo = int.Parse(Console.ReadLine());
+            int accountNo = ATMPrompts.GetAccountNo();
 
             if (AccountsList.ContainsKey(accountNo))
             {
-                Console.WriteLine("Enter your pin");
-                int pinNo = int.Parse(Console.ReadLine());
-                if (pinNo != AccountsList[accountNo].pin)
+                int pinNo = ATMPrompts.GetPinNo();
+                if (!ATMValidators.ValidateUser(AccountsList, accountNo, pinNo))
                 {
-                    Console.WriteLine("Invalid Pin");
                     return;
                 }
-                Console.WriteLine("Enter the amount you wish to withdraw");
-
-                double amount = Math.Abs(double.Parse(Console.ReadLine()));
-                if (amount > AccountsList[accountNo].balance)
-                {
-                    Console.WriteLine("Insufficient Balance;");
-                    return;
-                }
-                AccountsList[accountNo].balance -= amount;
-                double bal = AccountsList[accountNo].balance;
-                string transaction = "🔴 -";
-                transaction += amount.ToString();
-                transaction += "  Balance:";
-                transaction += bal.ToString();
-                AccountsList[accountNo].transactions.Add(transaction);
+                ATMTransactions.Withdraw(AccountsList, accountNo);
             }
             else
             {
-                Console.WriteLine("Invalid account number");
+                ATMMessages.InvalidAccountNo();
             }
         }
 
         public void GetTransactions()
         {
-            Console.WriteLine("Enter the account number");
-            int accountNo = int.Parse(Console.ReadLine());
+            int accountNo = ATMPrompts.GetAccountNo();
+
             if (AccountsList.ContainsKey(accountNo))
             {
-                Console.WriteLine("Enter your pin");
-                int pinNo = int.Parse(Console.ReadLine());
-                if (pinNo != AccountsList[accountNo].pin)
+                int pinNo = ATMPrompts.GetPinNo();
+                if (!ATMValidators.ValidateUser(AccountsList, accountNo, pinNo))
                 {
-                    Console.WriteLine("Invalid Pin");
                     return;
                 }
                 Console.WriteLine("Transaction History:");
-                foreach (var transaction in AccountsList[accountNo].transactions
-                )
+                foreach (var transaction in AccountsList[accountNo].transactions)
                 {
-                    Console.WriteLine (transaction);
+                    Console.WriteLine(transaction);
                 }
             }
             else
             {
-                Console.WriteLine("Invalid account number");
+                ATMMessages.InvalidAccountNo();
             }
         }
     }

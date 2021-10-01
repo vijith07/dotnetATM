@@ -11,12 +11,7 @@ namespace ATM
             ATM atm = new ATM();
             while (true)
             {
-                Console.WriteLine("Menu");
-                Console.WriteLine("1.Create Account");
-                Console.WriteLine("2.Deposit");
-                Console.WriteLine("3.Withdraw");
-                Console.WriteLine("4.Show Transaction History");
-                Console.Write("Please enter your selections: ");
+                StandardMessages.WelcomeMessage();
                 int select = int.Parse(Console.ReadLine());
 
                 switch (select)
@@ -34,7 +29,8 @@ namespace ATM
                         atm.GetTransactions();
                         break;
                     default:
-                        Console.WriteLine("Invalid selection!");
+                        StandardMessages.InvalidSelection();
+                       
                         break;
                 }
             }
